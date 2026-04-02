@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Imports corregidos (sin el punto inicial para evitar conflictos de ruta)
-import 'package:test_orbits/src/paginas/dashboard/dashboard.dart';
+import 'package:test_orbits/src/paginas/dashboard/home_page.dart';
 import 'package:test_orbits/src/paginas/dashboard/load/loading.dart';
 import 'package:test_orbits/src/paginas/usuario/createuser/crearusuario.dart';
 import 'package:test_orbits/src/paginas/usuario/login/iniciosesion.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => LoadingPage(),
         '/login': (context) => InicioSesionPage(),
         '/registro': (context) => CrearUsuarioPage(),
-        '/dashboard': (context) => DashboardPage(),
+        '/dashboard': (context) => const HomePage(),
       },
     );
   }

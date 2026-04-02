@@ -5,61 +5,43 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: _header(),
-            ),
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                children: [
-                  const SizedBox(height: 25),
-                  _balance(),
-                  const SizedBox(height: 30),
-                  const Text(
-                    "Mis Tarjetas",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF163E49),
-                    ),
+    return SafeArea(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: _header(),
+          ),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              children: [
+                const SizedBox(height: 25),
+                _balance(),
+                const SizedBox(height: 30),
+                const Text(
+                  "Mis Tarjetas",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF163E49),
                   ),
-                  _card(),
-                  const SizedBox(height: 30),
-                  const Text(
-                    "Recent Activity",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF163E49),
-                    ),
+                ),
+                _card(),
+                const SizedBox(height: 30),
+                const Text(
+                  "Recent Activity",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF163E49),
                   ),
-                  const SizedBox(height: 10),
-                  _transactions(),
-                  const SizedBox(height: 20),
-                ],
-              ),
+                ),
+                const SizedBox(height: 10),
+                _transactions(),
+                const SizedBox(height: 20),
+              ],
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF163E49),
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.send), label: "Transfer"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: "Profile",
           ),
         ],
       ),
