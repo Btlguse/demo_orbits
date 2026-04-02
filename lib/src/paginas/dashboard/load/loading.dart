@@ -43,13 +43,12 @@ class _LoadingPageState extends State<LoadingPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Icono de Escudo de tu diseño
-            const Icon(
-              Icons.shield_rounded,
-              size: 80,
-              color: Color(0xFF163E49),
+            Image.asset(
+              'lib/assets/images/logo.png',
+              width: 100,
+              height: 100,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 05),
             // Texto del Banco
             const Text(
               "Banco Orbix",

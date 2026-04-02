@@ -27,14 +27,14 @@ class _InicioSesionPageState extends State<InicioSesionPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(height: 60),
-                // Icono de Escudo representativo
-                const Icon(
-                  Icons.shield_rounded,
-                  size: 70,
-                  color: Color(0xFF163E49),
+                const SizedBox(height: 05),
+                // Logo Orbix
+                Image.asset(
+                  'lib/assets/images/logo.png',
+                  width: 70,
+                  height: 70,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 05),
                 const Text(
                   "Banco Orbix",
                   style: TextStyle(

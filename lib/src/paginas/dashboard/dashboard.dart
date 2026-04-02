@@ -8,33 +8,43 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(20),
+        child: Column(
           children: [
-            _header(),
-            const SizedBox(height: 25),
-            _balance(),
-            const SizedBox(height: 30),
-            const Text(
-              "Mis Tarjetas",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF163E49),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: _header(),
+            ),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                children: [
+                  const SizedBox(height: 25),
+                  _balance(),
+                  const SizedBox(height: 30),
+                  const Text(
+                    "Mis Tarjetas",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF163E49),
+                    ),
+                  ),
+                  _card(),
+                  const SizedBox(height: 30),
+                  const Text(
+                    "Recent Activity",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF163E49),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  _transactions(),
+                  const SizedBox(height: 20),
+                ],
               ),
             ),
-            _card(),
-            const SizedBox(height: 30),
-            const Text(
-              "Recent Activity",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF163E49),
-              ),
-            ),
-            const SizedBox(height: 10),
-            _transactions(),
           ],
         ),
       ),
@@ -46,10 +56,7 @@ class DashboardPage extends StatelessWidget {
         showUnselectedLabels: false,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            label: "Cards",
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.send), label: "Transfer"),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: "Profile",
@@ -138,50 +145,59 @@ class DashboardPage extends StatelessWidget {
   }
 
   Widget _card() {
-    return Container(
-      margin: const EdgeInsets.only(top: 15),
+    return SizedBox(
       height: 200,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFF2A5C66), Color(0xFF163E49)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(25),
-      ),
-      padding: const EdgeInsets.all(25),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "PREMIUM TITANIUM",
-            style: TextStyle(
-              color: Colors.white60,
-              fontSize: 10,
-              letterSpacing: 1.5,
-            ),
-          ),
-          const Spacer(),
-          const Text(
-            "**** **** **** 8824",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              letterSpacing: 3,
-            ),
-          ),
-          const Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Alberto Guzman",
-                style: TextStyle(color: Colors.white, fontSize: 16),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: const EdgeInsets.only(right: 15, top: 15),
+            width: 300,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF2A5C66), Color(0xFF163E49)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              const Icon(Icons.contactless, color: Colors.white, size: 28),
-            ],
-          ),
-        ],
+              borderRadius: BorderRadius.circular(25),
+            ),
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "PREMIUM TITANIUM",
+                  style: TextStyle(
+                    color: Colors.white60,
+                    fontSize: 10,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  "**** **** **** ${8824 + index}",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    letterSpacing: 3,
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Alberto Guzman",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    const Icon(Icons.contactless, color: Colors.white, size: 28),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
