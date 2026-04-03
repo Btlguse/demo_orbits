@@ -8,10 +8,7 @@ class DashboardPage extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: _header(),
-          ),
+          Padding(padding: const EdgeInsets.all(20), child: _header()),
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -30,7 +27,7 @@ class DashboardPage extends StatelessWidget {
                 _card(),
                 const SizedBox(height: 30),
                 const Text(
-                  "Recent Activity",
+                  "Ultimos movimientos",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -132,10 +129,7 @@ class DashboardPage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          Container(
-            height: 1,
-            color: Colors.white12,
-          ),
+          Container(height: 1, color: Colors.white12),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -168,7 +162,10 @@ class DashboardPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white12,
                       borderRadius: BorderRadius.circular(8),
@@ -238,7 +235,11 @@ class DashboardPage extends StatelessWidget {
                       "Alberto Guzman",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
-                    const Icon(Icons.contactless, color: Colors.white, size: 28),
+                    const Icon(
+                      Icons.contactless,
+                      color: Colors.white,
+                      size: 28,
+                    ),
                   ],
                 ),
               ],
